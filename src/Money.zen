@@ -1,0 +1,24 @@
+const std = @import("std");
+const ok = std.testing.ok;
+
+// [ ] $5+10CHF=$10
+
+// [v] $5*2=$10
+test "testMyltiplication" {
+    var five = Dollar {
+        .amount=5
+        };
+    five.times(2);
+    ok(10==five.amount);
+}
+
+const Dollar = struct {
+    fn times(self:*Dollar, multiplier:i32) void {
+        self.amount = self.amount*multiplier;
+    }
+    amount: i32
+};
+
+// [ ] amountをprivateにする
+// [ ] Dollarの副作用をどうする？
+// [ ] Moneyの丸め処理をどうする？
