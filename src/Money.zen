@@ -14,7 +14,7 @@ test "testMyltiplication" {
 
 const Dollar = struct {
     fn times(self:*Dollar, multiplier:i32) void {
-        self.amount = self.amount*multiplier;
+        self.amount *= multiplier;
     }
     amount: i32
 };
