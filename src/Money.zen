@@ -36,5 +36,5 @@ pub fn equals(self:var, object:var) bool {
 // [ ] nullとの等価性比較
 // [ ] 他のオブジェクトとの等価性比較
 // [v] 5CHF*2=10CHF
-// [ ] equalsの一般化
+// [v] equalsの一般化
 // [ ] timesの一般化
