@@ -14,6 +14,7 @@ test "testEquality" {
     ok( false == equals( Dollar.init(5), Dollar.init(6) ) );
     ok( equals( Franc.init(5), Franc.init(5) ) );
     ok( false == equals( Franc.init(5), Franc.init(6) ) );
+    ok( false == equals( Franc.init(5), Dollar.init(5) ) );
 }
 
 test "testFrancMultiplication" {
@@ -23,7 +24,7 @@ test "testFrancMultiplication" {
 }
 
 pub fn equals(self:var, object:var) bool {
-    return self.amount == object.amount;
+    return (self.amount == object.amount) and (@typeOf(self) == @typeOf(object));
 }
 
 // [ ] $5+10CHF=$10
@@ -38,3 +39,5 @@ pub fn equals(self:var, object:var) bool {
 // [v] 5CHF*2=10CHF
 // [v] equalsの一般化
 // [ ] timesの一般化
+// [v] FrancとDollarを比較する
+// [ ] 通貨の概念
