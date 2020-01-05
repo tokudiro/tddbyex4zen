@@ -1,9 +1,7 @@
 const std = @import("std");
 const ok = std.testing.ok;
+const Dollar = @import("Dollar.zen").Dollar;
 
-// [ ] $5+10CHF=$10
-
-// [v] $5*2=$10
 test "testMyltiplication" {
     var five = Dollar.init(5);
     ok( Dollar.init(10).equals(five.times(2)) );
@@ -16,21 +14,8 @@ test "testEquality" {
     ok( false == Dollar.init(5).equals(Dollar.init(6)) );
 }
 
-const Dollar = struct {
-    fn init(initial:i32) Dollar {
-        return Dollar{
-            .amount = initial,
-        };
-    }
-    fn times(self:*Dollar, multiplier:i32) Dollar {
-        return Dollar.init(self.amount * multiplier);
-    }
-    fn equals(self:*Dollar, object:var) bool {
-        return self.amount == object.amount;
-    }
-    amount: i32
-};
-
+// [ ] $5+10CHF=$10
+// [v] $5*2=$10
 // [v] amountをprivateにする
 // [v] Dollarの副作用をどうする？
 // [ ] Moneyの丸め処理をどうする？
@@ -38,3 +23,4 @@ const Dollar = struct {
 // [ ] hashCode()
 // [ ] nullとの等価性比較
 // [ ] 他のオブジェクトとの等価性比較
+// [ ] 5CHF*2=10CHF

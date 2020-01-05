@@ -1,0 +1,14 @@
+pub const Dollar = struct {
+    pub fn init(initial:i32) Dollar {
+        return Dollar{
+            .amount = initial,
+        };
+    }
+    pub fn times(self:*Dollar, multiplier:i32) Dollar {
+        return Dollar.init(self.amount * multiplier);
+    }
+    pub fn equals(self:*Dollar, object:var) bool {
+        return self.amount == object.amount;
+    }
+    amount: i32
+};
