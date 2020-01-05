@@ -5,21 +5,25 @@ const Franc = @import("Franc.zen").Franc;
 
 test "testMultiplication" {
     var five = Dollar.init(5);
-    ok( Dollar.init(10).equals(five.times(2)) );
+    ok( equals( Dollar.init(10), five.times(2) ) );
     var product = five.times(3);
-    ok( Dollar.init(15).equals(five.times(3)) );
+    ok( equals( Dollar.init(15), five.times(3) ) );
 }
 
 test "testEquality" {
-    ok( Dollar.init(5).equals(Dollar.init(5)) );
-    ok( false == Dollar.init(5).equals(Dollar.init(6)) );
+    ok( equals( Dollar.init(5), Dollar.init(5) ) );
+    ok( false == equals( Dollar.init(5), Dollar.init(6) ) );
 }
 
 test "testFrancMultiplication" {
     var five = Franc.init(5);
-    ok( Franc.init(10).equals(five.times(2)) );
+    ok( equals( Franc.init(10), five.times(2) ) );
     var product = five.times(3);
-    ok( Franc.init(15).equals(five.times(3)) );
+    ok( equals( Franc.init(15), five.times(3) ) );
+}
+
+pub fn equals(self:var, object:var) bool {
+    return self.amount == object.amount;
 }
 
 // [ ] $5+10CHF=$10
@@ -32,3 +36,5 @@ test "testFrancMultiplication" {
 // [ ] nullとの等価性比較
 // [ ] 他のオブジェクトとの等価性比較
 // [v] 5CHF*2=10CHF
+// [ ] equalsの一般化
+// [ ] timesの一般化
