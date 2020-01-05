@@ -6,12 +6,9 @@ const ok = std.testing.ok;
 // [v] $5*2=$10
 test "testMyltiplication" {
     var five = Dollar.init(5);
-    var product = five.times(2);
-    // 構造体は中身を比較するstd.testing.equalを使えば同じことができる
-    // std.testing.equal( Dollar.init(10), product );
-    ok( Dollar.init(10).equals(product) );
-    product = five.times(3);
-    ok(15==product.amount);
+    ok( Dollar.init(10).equals(five.times(2)) );
+    var product = five.times(3);
+    ok( Dollar.init(15).equals(five.times(3)) );
 }
 
 test "testEquality" {
@@ -34,7 +31,7 @@ const Dollar = struct {
     amount: i32
 };
 
-// [ ] amountをprivateにする
+// [v] amountをprivateにする
 // [v] Dollarの副作用をどうする？
 // [ ] Moneyの丸め処理をどうする？
 // [v] equals()
