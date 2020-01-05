@@ -6,10 +6,10 @@ const ok = std.testing.ok;
 // [v] $5*2=$10
 test "testMyltiplication" {
     var five = Dollar.init(5);
-    five.times(2);
-    ok(10==five.amount);
-    five.times(3);
-    ok(15==five.amount);
+    var product = five.times(2);
+    ok(10==product.amount);
+    product = five.times(3);
+    ok(15==product.amount);
 }
 
 const Dollar = struct {
@@ -18,8 +18,8 @@ const Dollar = struct {
             .amount = initial,
         };
     }
-    fn times(self:*Dollar, multiplier:i32) void {
-        self.amount *= multiplier;
+    fn times(self:*Dollar, multiplier:i32) Dollar {
+        return Dollar.init(self.amount * multiplier);
     }
     amount: i32
 };
