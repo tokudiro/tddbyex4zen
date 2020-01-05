@@ -1,8 +1,9 @@
 const std = @import("std");
 const ok = std.testing.ok;
 const Dollar = @import("Dollar.zen").Dollar;
+const Franc = @import("Franc.zen").Franc;
 
-test "testMyltiplication" {
+test "testMultiplication" {
     var five = Dollar.init(5);
     ok( Dollar.init(10).equals(five.times(2)) );
     var product = five.times(3);
@@ -14,6 +15,13 @@ test "testEquality" {
     ok( false == Dollar.init(5).equals(Dollar.init(6)) );
 }
 
+test "testFrancMultiplication" {
+    var five = Franc.init(5);
+    ok( Franc.init(10).equals(five.times(2)) );
+    var product = five.times(3);
+    ok( Franc.init(15).equals(five.times(3)) );
+}
+
 // [ ] $5+10CHF=$10
 // [v] $5*2=$10
 // [v] amountをprivateにする
@@ -23,4 +31,4 @@ test "testEquality" {
 // [ ] hashCode()
 // [ ] nullとの等価性比較
 // [ ] 他のオブジェクトとの等価性比較
-// [ ] 5CHF*2=10CHF
+// [v] 5CHF*2=10CHF
