@@ -8,6 +8,8 @@ test "testMyltiplication" {
     var five = Dollar.init(5);
     five.times(2);
     ok(10==five.amount);
+    five.times(3);
+    ok(15==five.amount);
 }
 
 const Dollar = struct {
