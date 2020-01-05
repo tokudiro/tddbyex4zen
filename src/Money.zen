@@ -6,19 +6,19 @@ const Franc = @import("Franc.zen").Franc;
 test "testMultiplication" {
     var five = Dollar.init(5);
     ok( equals( Dollar.init(10), five.times(2) ) );
-    var product = five.times(3);
     ok( equals( Dollar.init(15), five.times(3) ) );
 }
 
 test "testEquality" {
     ok( equals( Dollar.init(5), Dollar.init(5) ) );
     ok( false == equals( Dollar.init(5), Dollar.init(6) ) );
+    ok( equals( Franc.init(5), Franc.init(5) ) );
+    ok( false == equals( Franc.init(5), Franc.init(6) ) );
 }
 
 test "testFrancMultiplication" {
     var five = Franc.init(5);
     ok( equals( Franc.init(10), five.times(2) ) );
-    var product = five.times(3);
     ok( equals( Franc.init(15), five.times(3) ) );
 }
 
