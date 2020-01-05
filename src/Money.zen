@@ -7,7 +7,9 @@ const ok = std.testing.ok;
 test "testMyltiplication" {
     var five = Dollar.init(5);
     var product = five.times(2);
-    ok(10==product.amount);
+    // 構造体は中身を比較するstd.testing.equalを使えば同じことができる
+    // std.testing.equal( Dollar.init(10), product );
+    ok( Dollar.init(10).equals(product) );
     product = five.times(3);
     ok(15==product.amount);
 }
@@ -37,3 +39,5 @@ const Dollar = struct {
 // [ ] Moneyの丸め処理をどうする？
 // [v] equals()
 // [ ] hashCode()
+// [ ] nullとの等価性比較
+// [ ] 他のオブジェクトとの等価性比較
