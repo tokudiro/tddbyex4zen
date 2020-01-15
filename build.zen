@@ -11,4 +11,9 @@ pub fn build(b: *Builder) void {
 
     const run_step = b.step("run", "Run the app");
     run_step.dependOn(&run_cmd.step);
+    
+    var main_tests = b.addTest("src/Money.zen");
+    const test_step = b.step("test", "all test");
+
+    test_step.dependOn(&main_tests.step);
 }
